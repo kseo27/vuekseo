@@ -24,8 +24,13 @@ module.exports = {
 	// 빌드할 경우 디버깅을 위한 js source map을 생성, 필요없으면 꺼야 속도가 향상됨
 	productionSourceMap: false,
 
+	/**
+	 * GitHub Pages 배포를 위해 다음과 같이 설정
+	 * [publicPath] 리포지토리명
+	 * [outputDir] github pages root 경로
+	 */
 	publicPath: isProdMode ? '/vue-tmpl' : '/',
-	outputDir: 'docs', // for GitHub deployment
+	outputDir: 'docs',
 	assetsDir: 'assets',
 
 	devServer: {

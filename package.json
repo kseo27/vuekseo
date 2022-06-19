@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "loc": "vue-cli-service serve --mode localhost",
+    "dev": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.15",
@@ -18,7 +24,9 @@
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0"
+    "eslint-plugin-vue": "^7.0.0",
+    "sass": "^1.48.0",
+    "sass-loader": "^10.2.1"
   },
   "eslintConfig": {
     "root": true,
@@ -32,7 +40,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-unused-vars": "warn"
+    }
   },
   "browserslist": [
     "> 1%",
