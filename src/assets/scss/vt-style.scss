@@ -1,0 +1,21 @@
+@charset 'utf-8';
+@import 'setup', 'theme', 'primevue', 'overrides', 'layouts';
+
+.vt-box {
+	padding: 20px;
+	@include themify((
+		'border': 1px solid box-line,
+		'background-color': base-bg
+	))
+}
+
+.vt-flexible {
+	display: flex;
+	flex-direction: column;
+	& > .vt-flexible {
+		flex: 1 1 auto;
+	}
+	& > :not(.vt-flexible) {
+		flex-shrink: 0;
+	}
+}

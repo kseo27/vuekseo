@@ -1,0 +1,195 @@
+@charset 'utf-8';
+@include font-face(SpoqaHanSansNeo-Thin, $font-thin);
+@include font-face(SpoqaHanSansNeo-Light, $font-light);
+@include font-face(SpoqaHanSansNeo-Regular, $font-regular);
+@include font-face(SpoqaHanSansNeo-Medium, $font-medium);
+@include font-face(SpoqaHanSansNeo-Bold, $font-bold);
+
+/* Reset style
+============================================================*/
+*, :before, :after {
+	// -webkit-box-sizing: border-box;
+	// -moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body, h1, h2, h3, h4, h5, h6, p, pre, dl, dt, dd, ol, ul, li, img, iframe,
+form, fieldset, input, button, textarea, table, th, td, blockquote, hr {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+// semantic tags
+article, aside, details, figure, figcaption, footer, header, hgroup, main, menu, nav, section {
+	display: block;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+template, [hidden] {
+	display: none !important;
+}
+ol, ul, li {
+	list-style-type: none;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+thead > tr > th {
+	text-align: center;
+}
+tbody > tr > th {
+	text-align: left;
+}
+a, ins {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+	background-color: transparent;
+}
+address, em {
+	font-style: normal;
+}
+strong {
+	font-weight: 700;
+}
+b {
+	font-weight: bolder;
+}
+small {
+	font-size: 80%;
+	vertical-align: middle;
+}
+mark {
+	background-color: yellow;
+	color: inherit;
+}
+:root, html {
+	height:100%;
+	font-size: $font-base;
+	font-weight: $font-regular;
+	@include themify((
+		'color': base-text
+	));
+}
+body {
+	height: 100%;
+	cursor: default;
+	overflow: hidden;
+	word-wrap: break-word;
+	word-break: break-word;
+	overflow-wrap: break-word;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+body, input, select, button, textarea, table, pre {
+	font-family: $font-family, Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -0.025em;
+}
+h2, h3, h4, h5, h6 {
+	min-height: 1em;
+	// line-height: 1;
+	margin: 0.8em 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+p {
+	line-height: 1.5;
+	white-space: normal;
+}
+pre, textarea {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+// input{line-height:1}
+
+//? img, input, select, button, label {vertical-align:middle}
+// input, button, label {
+// 	vertical-align:middle;
+// }
+
+// button, [type="button"], label[for] {
+// 	background-position: 0 0;
+// 	background-color: transparent;
+// 	cursor: pointer;
+// }
+
+// input[type="image"], input[type="file"] {
+// 	box-sizing: content-box;
+// }
+
+// [readonly] {
+// 	border: 1px solid #d7d7d7 !important;
+// 	background-color: #f3f6f9 !important;
+// }
+
+// [disabled], .disabled {
+// 	opacity: 0.5 !important;
+// 	cursor: default !important;
+// 	pointer-events: none;
+// }
+
+// input[disabled] {
+// 	background-color: #ebebeb !important;
+// }
+
+// iframe {
+// 	width: 100%;
+// 	border: none;
+// 	vertical-align: top;
+// 	background-color: transparent;
+// }
+//* <iframe src="" frameborder="0" allowtransparency="true"></irame>
+
+// button, [type="button"] {
+// 	line-height: 1;
+// 	padding: .5em .6em;
+// 	outline: none;
+// }
+
+// Webkit Scrollbar
+body {
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+		@include unify-parent(main) {
+			width: 12px;
+			height: 12px;
+		}
+	}
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	::-webkit-scrollbar-thumb {
+		border: 0 none;
+		border-radius: 10px;
+		@include themify((
+			'background-color': scroll-bar
+		));
+		&:hover {
+			@include themify((
+				'background-color': scroll-bar-hover
+			));
+		}
+		@include unify-parent(main) {
+			border-radius: 0;
+		}
+	}
+	::-webkit-scrollbar-button {
+		width: 0;
+		height: 0;
+	}
+	::-webkit-scrollbar-corner {
+		background-color: transparent;
+		width: 0;
+		height: 0;
+	}
+}

@@ -1,0 +1,55 @@
+@charset 'utf-8';
+@mixin font-face($filename, $weight) {
+	@font-face {
+		font-family: $font-family;
+		font-weight: $weight;
+		src:url('~@/assets/fonts/#{$filename}.woff2') format('woff2'),
+			url('~@/assets/fonts/#{$filename}.woff') format('woff'),
+			url('~@/assets/fonts/#{$filename}.otf') format('opentype');
+	}
+}
+
+$valid-side: top left right bottom;
+
+@mixin absolute($pos...) {
+	position: absolute;
+	$pos: if(length($pos) > 0, $pos, (top left right bottom));
+	@each $side in $pos {
+		#{$side}: if(index($valid-side, $side), 0, null);
+	}
+}
+
+$other-themes: ('dark': $dark);
+$not-only-color: 'box-shadow' 'outline' 'stroke' 'fill';
+
+@mixin themify($prop-map) {
+	@if type-of($prop-map) == 'map' {
+		@each $prop, $value in $prop-map {
+			$theme-keys: as-theme($value);
+			@if $theme-keys {
+				#{$prop}: conv-theme($values: $value);
+				@each $theme-key, $theme in $other-themes {
+					[data-theme="#{$theme-key}"] & {
+						@if not has-some($prop, $not-only-color) {
+							#{merge-key($prop, color)}: conv-theme($theme, $theme-keys);
+							// @debug (#{merge-key($prop, color)}: conv-theme($theme, $theme-keys));
+						} @else {
+							#{$prop}: conv-theme($theme, $value);
+							// @debug (#{$prop}: conv-theme($theme, $value));
+						}
+					}
+				}
+			} @else {
+				#{$prop}: $value;
+			}
+		}
+	} @else {
+		@warn 'themify($prop-map), a map-type argument is required.';
+	}
+}
+
+@mixin unify-parent($child) {
+	@at-root #{selector-unify(&, $child)} {
+		@content;
+	}
+}

@@ -1,0 +1,126 @@
+@charset 'utf-8';
+@use 'sass:math';
+
+@function un-unit($num) {
+	@if type-of($num) == 'number' {
+		@return math.div($num, $num * 0 + 1);
+	}
+	@return $num;
+}
+
+@function case-zero($length) {
+	@return if(un-unit($length) == 0, 0, $length);
+}
+
+@function is-number($values) {
+	@each $value in $values {
+		@if type-of($value) != 'number' {
+			@return false;
+		}
+	}
+	@return true;
+}
+
+@function is-color($values) {
+	@each $value in $values {
+		@if type-of($value) != 'color' {
+			@return false;
+		}
+	}
+	@return true;
+}
+
+@function is-theme($values) {
+	@each $value in $values {
+		@if not map-has-key($default, $value) {
+			@return false;
+		}
+	}
+	@return true;
+}
+
+@function in-theme($values) {
+	@each $value in $values {
+		@if map-has-key($default, $value) {
+			@return true;
+		}
+	}
+	@return false;
+}
+
+@function as-theme($values: null) {
+	$result: ();
+	@each $value in $values {
+		@if is-theme($value) {
+			$result: append($result, $value);
+		}
+	}
+	@return if(length($result) > 0, $result, null);
+}
+
+@function conv-theme($theme: $default, $values: null) {
+	$result: ();
+	$separator: list-separator($values);
+	@each $value in $values {
+		@if $separator == comma {
+			$value: conv-theme($theme, $value);
+		}
+		$result: append($result, if(is-theme($value), map-get($theme, $value), $value), $separator: $separator);
+	}
+	@return if(index($result, null), null, $result);
+}
+
+@function split-string($string, $separator: '-') {
+	$result: ();
+	$leng: str-length($separator);
+	$idx: str-index($string, $separator);
+	@while $idx {
+		$result: append($result, str-slice($string, 0, $idx - 1));
+		$string: str-slice($string, $idx + $leng, -1);
+		$idx: str-index($string, $separator);
+	}
+	@return append($result, $string);
+}
+
+@function merge-key($prop, $keys...) {
+	$prop-list: split-string($prop);
+	@each $key in $keys {
+		@if $key and not index($prop-list, $key) {
+			$prop: #{$prop}-#{$key};
+		}
+	}
+	@return $prop;
+}
+
+@function has-some($target, $subject) {
+	@if type-of($target) == 'string' {
+		@if type-of($subject) == 'string' {
+			@return if(str-index($target, $subject), true, false);
+		} @else if type-of($subject) == 'list' {
+			@each $sub in $subject {
+				@if type-of($sub) == 'string' and str-index($target, $sub) {
+					@return true;
+				}
+			}
+		}
+	} @else if type-of($target) == 'list' {
+		@if type-of($subject) == 'string' {
+			@each $tar in $target {
+				@if type-of($tar) == 'string' and str-index($tar, $subject) {
+					@return true;
+				}
+			}
+		} @else if type-of($subject) == 'list' {
+			@each $tar in $target {
+				@if type-of($tar) == 'string' {
+					@each $sub in $subject {
+						@if type-of($sub) == 'string' and str-index($tar, $sub) {
+							@return true;
+						}
+					}
+				}
+			}
+		}
+	}
+	@return false;
+}
