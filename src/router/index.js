@@ -11,6 +11,20 @@ const routes = [
 		component: () => import('@views/Main.vue'),
 		children: [
 			{
+				path: 'basic',
+				name: 'Basic',
+				meta: { title: 'Vue Basic', leaf: false },
+				component: RouterBridge,
+				children: [
+					{
+						path: 'sfc',
+						name: 'SingleFileComponent',
+						meta: { title: 'Single File Component', leaf: true },
+						component: () => import('@views/basic/SingleFileComponent.vue')
+					},
+				]
+			},
+			{
 				path: 'scope',
 				name: 'Scope',
 				meta: { title: 'Vue Scope', leaf: false },
@@ -23,6 +37,26 @@ const routes = [
 				meta: { title: 'Vue Router', leaf: false },
 				component: RouterBridge,
 				children: []
+			},
+			{
+				path: 'expt',
+				name: 'Experiments',
+				meta: { title: 'Experiments', leaf: false },
+				component: RouterBridge,
+				children: [
+					{
+						path: 'wheel',
+						name: 'WheelEvent',
+						meta: { title: 'Wheel Event', leaf: true },
+						component: () => import('@views/experiments/wheel-event'),
+					},
+					{
+						path: 'tooltip',
+						name: 'Tooltip',
+						meta: { title: 'Tooltip', leaf: true },
+						component: () => import('@views/experiments/tooltip'),
+					},
+				]
 			},
 			// {
 			// 	path: 'user',

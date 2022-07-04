@@ -1,18 +1,9 @@
 @charset 'utf-8';
 
-article, section {
-	position: relative;
-	&:before, &:after {
-		content: " ";
-		display: table;
-		clear: both;
-	}
-	+ article {
-		margin-top: 40px;
-	}
-	+ section {
-		margin-top: 20px;
-	}
+article, section { position: relative;
+	&:before, &:after { content: " "; display: table; clear: both; }
+	+ article { margin-top: 40px; }
+	+ section { margin-top: 20px; }
 }
 
 .vt-wrap {
@@ -20,9 +11,7 @@ article, section {
 	max-width: $view-max;
 	// min-width: $view-min;
 	margin: 0 auto;
-	@include themify((
-		'background-color': base-bg
-	));
+	@include themify(( 'background-color': base-bg ));
 
 	> header {
 		position: fixed;
@@ -44,9 +33,7 @@ article, section {
 			height: 100%;
 			margin: 0 auto;
 			padding: 0 20px 2px;
-			@include themify((
-				'color': header-text
-			));
+			@include themify(( 'color': header-text ));
 		}
 
 		& ~ aside, & ~ main {
@@ -73,9 +60,7 @@ article, section {
 main {
 	@include absolute;
 	margin-left: $snb-width;
-	@include themify((
-		'background-color': base-bg
-	));
+	@include themify(( 'background-color': base-bg ));
 	overflow: auto;
 	overflow: overlay;
 }
@@ -97,28 +82,22 @@ main {
 		display: block;
 		@extend %ellipsis;
 		&:hover {
-			@include themify((
-				'color': primary
-			));
+			@include themify(( 'color': primary ));
 		}
 	}
 
 	ul {
 		height: auto;
-		padding-left: 15px;
+		padding-left: 16px;
 		overflow: hidden;
 	}
 
 	&-d1 {
 		padding: 3px 0;
-		@include themify((
-			'border-bottom': 1px solid base-line
-		));
+		@include themify(( 'border-bottom': 1px solid base-line ));
 
 		&:first-child {
-			@include themify((
-				'border-top': 1px solid base-line
-			));
+			@include themify(( 'border-top': 1px solid base-line ));
 		}
 
 		> a {
@@ -128,21 +107,19 @@ main {
 			border-radius: $border-radius;
 		}
 
-		> ul {
-			margin-bottom: 10px;
-		}
+		> ul { margin: 6px 0 10px; }
 
 		&.vt-active > a {
 			@include themify(('background-color': primary-alpha));
-			+ ul {
-				margin-top: 6px;
-			}
+			// + ul { margin-top: 6px; }
 		}
 	}
 
 	&-d2 {
-		padding: 6px 0;
+		// margin: 10px 0;
+		padding: 4px 0;
 		
+		> a { padding: 2px; }
 		&.vt-active > a {
 			font-weight: $font-regular;
 		}

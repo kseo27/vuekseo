@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<div class="vt-header">
-			<i class="pi pi-link" style="font-size: 26px; margin-right: 8px;"></i>
+			<i class="mi mi-logo mr-2"></i>
 			<h1>Vue Template</h1>
 		</div>
 	</header>
@@ -16,8 +16,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-	padding: 0.1em 0 0.2em;
-	font-size: 20px;
+.mi-logo {
+	font-size: 26px;
+	&:before { content: '\e41d'; }
 }
+h1 { padding-bottom: 1px; font-size: 20px; }
 </style>
