@@ -1,8 +1,37 @@
 <template>
+- Custom Directives를 활용하여 Tooltip을 등록
+ ( 참조: https://vuejs.org/guide/reusability/custom-directives.html )<!-- TODO: external link component로 구현 -->
+<section class="grid mt-0">
+	<div class="col-6">
+		<section class="vt-box">
+			<div class="vt-point vt-point-active" v-tip.toggle="'tooltip value tooltip value.'"></div>
+			<div class="vt-area" v-tip.toggle="'tooltip value tooltip value.'"></div>
+		</section>
+	</div>
+	<div class="col-6">
+		<div class="vt-ref-code">
+			<pre
+><span class="vt-ref-fde">// --- Bind Globally in main.js</span>
+import tooltip from '@/tooltipDirectiveSource.js'
+app.directive('tooltip', tooltip)
 
-<section class="vt-box mt-4">
-	<div class="vt-point vt-point-active" v-tip.toggle="'tooltip value tooltip value.'"></div>
-	<div class="vt-area" v-tip.toggle="'tooltip value tooltip value.'"></div>
+<span class="vt-ref-fde">// --- Bind Locally</span>
+&lt;script&gt;
+import tooltip from '@/tooltipDirectiveSource.js'
+export default {
+	directives: {
+		tooltip
+	},
+}
+&lt;/script&gt;
+
+<span class="vt-ref-fde">// --- Template.vue</span>
+&lt;template&gt;
+	&lt;div v-tooltip="value"&gt;&lt;/div&gt;
+&lt;/template&gt;
+			</pre>
+		</div>
+	</div>
 </section>
 
 <section class="vt-fig">
@@ -31,7 +60,7 @@ export default {
 		const isSingleRoot = ref(true);
 
 		return {
-			isSingleRoot
+			isSingleRoot,
 		}
 	}
 }
@@ -40,8 +69,12 @@ export default {
 <style lang="scss" scoped>
 .vt-box {
 	position: relative;
+	min-height: 100%;
 	height: 300px;
 	overflow: hidden;
+}
+.vt-ref-code {
+	min-height: 100%;
 }
 .vt-fig {
 	padding: 1.5rem;

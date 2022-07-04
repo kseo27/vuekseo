@@ -107,6 +107,12 @@ p {
 pre, textarea {
 	line-height: 1.5;
 	white-space: pre-wrap;
+	tab-size: 4;
+	-moz-tab-size: 4;
+	overflow: auto;
+}
+code {
+	font-family: Consolas, Monaco, 'Lucida Console', Menlo, monospace;
 }
 
 // input{line-height:1}

@@ -1,0 +1,32 @@
+@charset 'utf-8';
+
+.vt-ref-code {
+	// padding: 1.5rem 2.5rem;
+	padding: 0.75rem 1.25rem;
+	font-size: $font-base + 1;
+	color: #efefef;
+	background-color: #1b2426;
+	border-radius: 4px;
+	
+	@include unify-parent(span) {
+		display: inline-block;
+	}
+
+	pre {
+		max-height: 100%;
+		// margin-right: -1rem;
+		// padding-right: 1rem;
+		padding: 0.75rem 1.25rem;
+		font-family: Consolas, Monaco, 'Lucida Console', Menlo, monospace;
+		overflow: overlay;
+	}
+}
+
+.vt-ref-cmt{color:#668b68;}/* Comment */
+.vt-ref-str{color:#d3c18d;}/* String */
+.vt-ref-arg{font-style:italic;color:#e6a939;}/* Argument */
+.vt-ref-key{font-style:italic;color:#76d2f0;}/* Keyword */
+.vt-ref-dcs{color:#e34f76;}/* Decision Marking */
+.vt-ref-fde{color:#a6d365;}/* Func Declaration */
+.vt-ref-fex{color:#76d2f0;}/* Func Expression */
+.vt-ref-gpr{color:#9f89ea;}/* Global Property */

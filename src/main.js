@@ -18,6 +18,8 @@ import 'primevue/resources/primevue.min.css'  // core css
 import 'primeflex/primeflex.min.css'  // flex css
 import 'primeicons/primeicons.css'  // icons
 import '@/assets/scss/vt-style.scss';
+// for Reference page
+import '@/assets/scss/vt-ref.scss';
 
 
 const app = createApp(App)
