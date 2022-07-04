@@ -1,25 +1,37 @@
 <template>
+
 <section class="vt-box mt-4">
 	<div class="vt-point vt-point-active" v-tip.toggle="'tooltip value tooltip value.'"></div>
 	<div class="vt-area" v-tip.toggle="'tooltip value tooltip value.'"></div>
 </section>
+
+<section class="vt-fig">
+	<SingleRootComponent v-tip.toggle="'tooltip value tooltip value.'" v-if="isSingleRoot" />
+	<MultiRootComponent v-tip.toggle="'tooltip value tooltip value.'" v-else />
+</section>
+<Button label="Change Component" class="mt-2" @click="isSingleRoot = !isSingleRoot" />
+
 </template>
 
 <script>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import tip from './tooltip.ext';
-import { toFixed } from '@/common/vt-utils';
+// import { toFixed } from '@/common/vt-utils';
+import SingleRootComponent from './SingleRootComponent.vue';
+import MultiRootComponent from './MultiRootComponent.vue';
 
 export default {
-	directives: {
-		tip
+	directives: { tip },
+	components: {
+		SingleRootComponent,
+		MultiRootComponent
 	},
 	setup( props ) {
 
-		console.log('toFixed', toFixed);
+		const isSingleRoot = ref(true);
 
 		return {
-			
+			isSingleRoot
 		}
 	}
 }
@@ -30,6 +42,13 @@ export default {
 	position: relative;
 	height: 300px;
 	overflow: hidden;
+}
+.vt-fig {
+	padding: 1.5rem;
+	@include themify((
+		'border': 1px solid box-line,
+		'background-color': base-bg
+	))
 }
 </style>
 
