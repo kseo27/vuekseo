@@ -3,9 +3,9 @@
  ( 참조: https://vuejs.org/guide/reusability/custom-directives.html )<!-- TODO: external link component로 구현 -->
 <section class="grid mt-0">
 	<div class="col-6">
-		<section class="vt-box">
-			<div class="vt-point vt-point-active" v-tip.toggle="'tooltip value tooltip value.'"></div>
-			<div class="vt-area" v-tip.toggle="'tooltip value tooltip value.'"></div>
+		<section class="vt-box" ref="wrapper">
+			<div class="vt-point vt-point-active" v-tip.toggle.left.bottom="tooltipState"></div>
+			<div class="vt-area" v-tip.toggle.left.bottom="tooltipState"></div>
 		</section>
 	</div>
 	<div class="col-6">
@@ -44,7 +44,10 @@ export default {
 
 <script>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import tip from './tooltip.ext';
+
+import tip from './vt-tooltip';
+// import tip from './tooltip.ext';
+
 // import { toFixed } from '@/common/vt-utils';
 import SingleRootComponent from './SingleRootComponent.vue';
 import MultiRootComponent from './MultiRootComponent.vue';
@@ -57,9 +60,19 @@ export default {
 	},
 	setup( props ) {
 
+		const wrapper = ref();
+		const tooltipState = ref({
+			value: 'tooltip value tooltip value. tooltip value tooltip value. tooltip value tooltip value.',
+			viewport: wrapper,
+		});
+
+		// #expt component test
 		const isSingleRoot = ref(true);
 
 		return {
+			wrapper, tooltipState,
+
+			// #expt component test
 			isSingleRoot,
 		}
 	}

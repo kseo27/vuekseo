@@ -14,7 +14,7 @@ import ToastService from 'primevue/toastservice'
 
 
 import 'primevue/resources/themes/saga-blue/theme.css'  // theme
-import 'primevue/resources/primevue.min.css'  // core css
+import 'primevue/resources/primevue.min.css'  // core css // ? vt-style 내에서 중복되는 상태
 import 'primeflex/primeflex.min.css'  // flex css
 import 'primeicons/primeicons.css'  // icons
 import '@/assets/scss/vt-style.scss';

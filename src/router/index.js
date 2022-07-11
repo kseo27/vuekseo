@@ -11,9 +11,9 @@ const routes = [
 		component: () => import('@views/Main.vue'),
 		children: [
 			{
-				path: 'basic',
-				name: 'Basic',
-				meta: { title: 'Vue Basic', leaf: false },
+				path: 'guidance',
+				name: 'Guidance',
+				meta: { title: 'Vue Guidance', leaf: false },
 				component: RouterBridge,
 				children: [
 					{
@@ -22,19 +22,26 @@ const routes = [
 						meta: { title: 'Single File Component', leaf: true },
 						component: () => import('@views/basic/SingleFileComponent.vue')
 					},
+					{
+						path: 'scope',
+						name: 'Scope',
+						meta: { title: 'Vue Scope', leaf: true },
+						component: RouterBridge,
+						children: []
+					},
+					{
+						path: 'router',
+						name: 'Router',
+						meta: { title: 'Vue Router', leaf: true },
+						component: RouterBridge,
+						children: []
+					},
 				]
 			},
 			{
-				path: 'scope',
-				name: 'Scope',
-				meta: { title: 'Vue Scope', leaf: false },
-				component: RouterBridge,
-				children: []
-			},
-			{
-				path: 'router',
-				name: 'Router',
-				meta: { title: 'Vue Router', leaf: false },
+				path: 'tmpl',
+				name: 'Templates',
+				meta: { title: 'Templates', leaf: false },
 				component: RouterBridge,
 				children: []
 			},
