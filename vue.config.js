@@ -1,5 +1,5 @@
 const path = require('path');
-const joinPath = dir => path.join(__dirname, dir);
+const combine = path.join.bind(null, __dirname, 'src');
 const isProdMode = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -52,12 +52,12 @@ module.exports = {
 	configureWebpack: {
 		resolve: {
 			alias: {
-				// '@': joinPath('src')
-				'@components': joinPath('src/components'),
-				'@composables': joinPath('src/composables'),
-				'@store': joinPath('src/store'),
-				'@styles': joinPath('src/assets/styles'),
-				'@views': joinPath('src/views'),
+				// '@': combine(),
+				'@components': combine('components'),
+				'@composables': combine('composables'),
+				'@store': combine('store'),
+				'@styles': combine('assets/styles'),
+				'@views': combine('views'),
 			}
 		},
 		optimization: {
