@@ -101,8 +101,4 @@ export default {
 		transition: all 0.25s ease-in-out;
 	}
 }
-
-.vt-snb-d1.vt-active {
-	letter-spacing: -0.05em;
-}
 </style>

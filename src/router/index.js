@@ -65,26 +65,6 @@ const routes = [
 					},
 				]
 			},
-			{
-				path: 'expt222',
-				name: 'Experiments2',
-				meta: { title: 'Experiments', leaf: false },
-				component: RouterBridge,
-				children: [
-					{
-						path: 'wheel222',
-						name: 'WheelEvent2',
-						meta: { title: 'Wheel Event', leaf: true },
-						component: () => import('@views/experiments/wheel-event'),
-					},
-					{
-						path: 'tooltip222',
-						name: 'Tooltip2',
-						meta: { title: 'Tooltip', leaf: true },
-						component: () => import('@views/experiments/tooltip'),
-					},
-				]
-			},
 			// {
 			// 	path: 'user',
 			// 	name: 'UserManagement',
