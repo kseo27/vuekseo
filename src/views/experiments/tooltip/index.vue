@@ -1,6 +1,6 @@
 <template>
-- Custom Directives를 활용하여 Tooltip을 등록
- ( 참조: https://vuejs.org/guide/reusability/custom-directives.html )<!-- TODO: external link component로 구현 -->
+<p>- Custom Directives를 활용하여 Tooltip을 등록
+ ( 참조: https://vuejs.org/guide/reusability/custom-directives.html )</p><!-- TODO: external link component로 구현 -->
 <section class="grid mt-0">
 	<div class="col-6">
 		<section class="vt-box" ref="wrapper">
@@ -48,7 +48,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import tip from './vt-tooltip';
 // import tip from './tooltip.ext';
 
-// import { toFixed } from '@/common/vt-utils';
+// import { toFixed } from '@/common/utils/vt-utils';
 import SingleRootComponent from './SingleRootComponent.vue';
 import MultiRootComponent from './MultiRootComponent.vue';
 

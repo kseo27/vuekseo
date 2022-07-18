@@ -15,7 +15,7 @@
 
 <script>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { toFixed } from '@/common/vt-utils';
+import { toFixed } from '@/common/utils/vt-utils';
 import Item from './WheelEventItem.vue';
 
 export default {

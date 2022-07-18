@@ -63,6 +63,12 @@ const routes = [
 						meta: { title: 'Tooltip', leaf: true },
 						component: () => import('@views/experiments/tooltip'),
 					},
+					{
+						path: 'finder',
+						name: 'MapFinder',
+						meta: { title: 'Map Finder', leaf: true },
+						component: () => import('@views/experiments/map-finder'),
+					},
 				]
 			},
 			// {

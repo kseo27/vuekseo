@@ -2,6 +2,7 @@
 
 $vue-primary: #41b883;
 $vue-secondary: #35495e;
+$vue-secondary-deep: #2c3c4e; // darken($vue-secondary, 5);
 // #e9ecef
 // #dee2e6
 // #d3d8dd
@@ -35,7 +36,7 @@ $default: (
 	success-alpha: rgba(#41b883, 8%),
 	success-alpha-deep: rgba(#41b883, 16%),
 	base-bg: #ffffff,
-	header-bg: #35495e,
+	header-bg: $vue-secondary-deep,
 
 	// Text
 	base-text: #2c3e50,
@@ -72,7 +73,6 @@ $font-black: 900;
 $font-base: 12px;
 $font-small: 11px;
 $font-large: 14px;
-
 
 //* lighten($color, $percentage);
 //* darken($color, $percentage);

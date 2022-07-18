@@ -21,6 +21,7 @@
 	speak: none;
 
 	&:before {
+		content: attr(mi);
 		--webkit-backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
