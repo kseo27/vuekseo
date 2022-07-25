@@ -5,7 +5,7 @@ function noop() {}
 function genConfig({
 	modifiers, value: strValue, value: {
 		value, disabled = false, escape = false, tooltipClass, viewport = null, callback = noop, props = {}
-	}
+	} = {}
 }) {
 	return {
 		modifiers, value: value || strValue, disabled, escape, tooltipClass, viewport, callback, props

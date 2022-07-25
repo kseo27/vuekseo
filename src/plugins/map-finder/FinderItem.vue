@@ -1,6 +1,8 @@
 <template>
-<div ref="item" :class="['finder-item', template && `finder-${template}-item`]" :style="coords" v-tooltip="tooltip">
-	<div :class="['finder-node', template && `finder-${template}-node`]" :style="dims" v-on="events">{{ text }}</div>
+<div ref="item" :class="['finder-item', template && `finder-${template}-item`]" :style="coords">
+	<div :class="['finder-node', template && `finder-${template}-node`]" :style="dims" v-on="events" v-tooltip="tooltip">
+		{{ text }}
+	</div>
 	<!-- #expt. item status -->
 	<div class="finder-item-expt">{{ $props }}<br/>{{ $attrs }}</div>
 </div>
@@ -44,7 +46,7 @@ export default {
 		// coordinates
 		const coords = computed(() => {
 			let { x, y } = props;
-			return `top:${x*props.zoom}px;left:${y*props.zoom}px;`;
+			return `top:${y*props.zoom}px;left:${x*props.zoom}px;`;
 		});
 
 		// dimensions
@@ -63,14 +65,6 @@ export default {
 </script>
 
 <style lang="scss">
-.finder {
-	&-item {
-		position: absolute;
-	}
-	&-node {
-
-	}
-}
 
 // #expt.
 .finder-item-expt {

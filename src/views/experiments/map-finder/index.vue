@@ -31,6 +31,7 @@ export default {
 		const myItems = ref([
 			{
 				template: 'area',
+				x: 200, y: 100,
 				tooltip: 'my tooltip value'
 			}
 		]);
@@ -40,6 +41,10 @@ export default {
 		onBeforeUnmount(() => {
 			myTemplates = null;
 		});
+
+
+		//! expt. map
+		let imgURL = require('@/assets/temp/sample-map-820.png');
 
 		return {
 			myTemplates, myItems,
