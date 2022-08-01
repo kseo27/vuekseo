@@ -1,7 +1,6 @@
 @charset 'utf-8';
 
-/* PrimeVue override
-============================================================*/
+// * --- PrimeVue override
 .p-component:not(div) + .p-component:not(div) {
 	margin-left: 10px;
 }
@@ -21,4 +20,9 @@
 }
 .p-confirm-dialog {
 	width: 300px;
+}
+
+// --- Toast
+.p-toast .p-toast-message .p-toast-message-content .p-toast-summary {
+	font-weight: 500;
 }

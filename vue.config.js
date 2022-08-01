@@ -55,8 +55,11 @@ module.exports = {
 				// '@': combine(),
 				'@components': combine('components'),
 				'@composables': combine('composables'),
+				'@const': combine('common/constants'),
+				'@services': combine('services'),
 				'@store': combine('store'),
 				'@styles': combine('assets/styles'),
+				'@utils': combine('common/utils'),
 				'@views': combine('views'),
 			}
 		},

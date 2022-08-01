@@ -66,13 +66,13 @@ export default {
 			viewport: wrapper,
 		});
 
-		// #expt component test
+		// ?expt. component test
 		const isSingleRoot = ref(true);
 
 		return {
 			wrapper, tooltipState,
 
-			// #expt component test
+			// ?expt. component test
 			isSingleRoot,
 		}
 	}
@@ -99,7 +99,7 @@ export default {
 </style>
 
 <style lang="scss">
-// # expt point
+// ?expt. point
 .vt-point {
 	color: lightseagreen;
 

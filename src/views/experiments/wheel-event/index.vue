@@ -34,7 +34,7 @@ export default {
 	},
 	setup( props ) {
 
-		// # expt add component
+		// ?expt. add component
 		const fixedPoint = value => toFixed( value, props.precision );
 		const items = ref([]);
 		const addItem = ev => {
@@ -75,7 +75,7 @@ export default {
 			}
 			// console.log(canvasRef.value.offsetParent);
 
-			// # expt add component
+			// ?expt. add component
 			items.value.push({ width: 100, height: 60 });
 		});
 		onBeforeUnmount(() => {
@@ -109,7 +109,7 @@ export default {
 			// Apply
 			// ev.target.style.transform = `scale(${scale})`;
 
-			// # expt mouse position
+			// ?expt. mouse position
 			// let rect = parent.getBoundingClientRect();
 			// let mouseX = +toFixed(ev.clientX - rect.left);
 			// let mouseY = +toFixed(ev.clientY - rect.top);
@@ -130,7 +130,7 @@ export default {
 			// left = -(incrementX * (mouseX / offsetWidth) >> 0);
 
 
-			// # expt zoom & mouse position
+			// ?expt. zoom & mouse position
 			let rect = canvas.getBoundingClientRect();
 			// let mouseX = +toFixed(ev.clientX - rect.left);
 			// let mouseY = +toFixed(ev.clientY - rect.top);
@@ -198,7 +198,7 @@ export default {
 		return {
 			canvasRef, zoom, onWheel, onMousedown,
 
-			// #expt mouse position
+			// ?expt. mouse position
 			items, addItem, pointActive
 		}
 	}
@@ -232,7 +232,7 @@ export default {
 </style>
 
 <style lang="scss">
-// # expt point
+// ?expt. point
 .vt-point {
 	color: lightseagreen;
 

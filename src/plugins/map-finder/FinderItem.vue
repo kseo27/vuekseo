@@ -3,7 +3,7 @@
 	<div :class="['finder-node', template && `finder-${template}-node`]" :style="dims" v-on="events" v-tooltip="tooltip">
 		{{ text }}
 	</div>
-	<!-- #expt. item status -->
+	<!-- ?expt. item status -->
 	<div class="finder-item-expt">{{ $props }}<br/>{{ $attrs }}</div>
 </div>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import { ref, computed } from 'vue';
 
-// #expt
+// ?expt.
 import tooltip from '@views/experiments/tooltip/vt-tooltip';
 
 export default {
@@ -66,7 +66,7 @@ export default {
 
 <style lang="scss">
 
-// #expt.
+// ?expt.
 .finder-item-expt {
 	position: absolute;
 	top: 100%;

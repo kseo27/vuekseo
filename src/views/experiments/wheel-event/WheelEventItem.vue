@@ -29,7 +29,7 @@ export default {
 		const itemStyle = computed(() => {
 			let { top, left, width, height } = status;
 
-			// # expt mouse position
+			// ?expt. mouse position
 			// top *= props.zoom;
 			// left *= props.zoom;
 
@@ -68,7 +68,7 @@ export default {
 			parent = null;
 		});
 
-		// # expt mousedown captureing
+		// ?expt. mousedown captureing
 		const onMousedown = ev => {
 			console.log('item mousedown.');
 			ev.preventDefault();
@@ -77,7 +77,7 @@ export default {
 
 		return {
 			item, itemStyle,
-			// # expt mousedown captureing
+			// ?expt. mousedown captureing
 			onMousedown,
 		}
 	}

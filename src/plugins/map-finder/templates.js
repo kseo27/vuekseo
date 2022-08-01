@@ -1,6 +1,19 @@
 import _ from 'lodash';
 
-export default function useTemplates( extraTemplates ) {
+export function itemKeys() {
+	return [
+		// 'x', 'y',
+		'width',
+		'height',
+		'text',
+		// 'tooltip',
+		'state',
+		'events',
+		'zoomable'
+	]
+}
+
+export function useTemplates( extraTemplates ) {
 	const templates = {
 		point: {
 			width: 8,
@@ -14,6 +27,7 @@ export default function useTemplates( extraTemplates ) {
 		},
 		area: {
 			width: 50,
+			state: 'green',
 			events: {
 				click(ev) {
 					ev.stopPropagation();

@@ -38,7 +38,7 @@
 // import { ref, onMounted } from 'vue';
 // import { useRoute } from 'vue-router';
 
-// ? expt. for router link tree
+// ?expt. for router link tree
 import RouterLinkTree from '@/router/RouterLinkTree.vue';
 import { useRouter } from 'vue-router';
 import _ from 'lodash';
@@ -72,7 +72,7 @@ export default {
 		// }
 
 
-		// ? expt. for router link tree
+		// ?expt. for router link tree
 		const router = useRouter()
 		const mainRoute = _.find( router.options.routes, { name: 'Main' });
 
@@ -80,7 +80,7 @@ export default {
 		return {
 			// opened, onMenuClick, transitionHooks,
 
-			// ? expt. for router link tree
+			// ?expt. for router link tree
 			mainRoute,
 		}
 	}

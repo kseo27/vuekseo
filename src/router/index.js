@@ -69,6 +69,12 @@ const routes = [
 						meta: { title: 'Map Finder', leaf: true },
 						component: () => import('@views/experiments/map-finder'),
 					},
+					{
+						path: 'timer',
+						name: 'VtTimer',
+						meta: { title: 'VT Timer', leaf: true },
+						component: () => import('@views/experiments/Timer'),
+					},
 				]
 			},
 			// {
@@ -120,5 +126,31 @@ const router = createRouter({
 // 	console.log(START_LOCATION);
 // 	console.log('from === START_LOCATION', from === START_LOCATION);
 // });
+
+
+// ?expt. Change document title using afterEach navigation guard
+import { NavigationFailureType, isNavigationFailure } from 'vue-router';
+
+const appName = process.env.VUE_APP_NAME || document.title;
+
+router.afterEach(( to, from, failure ) => {
+
+	if ( !failure ) {
+		console.log('[Router]: Resolved.');
+		let { title } = to.meta;
+		document.title = `${title ? `${title} - ` : ''}${appName}`;
+		return;
+	}
+
+	if ( isNavigationFailure(failure, NavigationFailureType.aborted ) ) {
+		console.log('[Router]: Aborted.');
+	}
+	else if ( isNavigationFailure(failure, NavigationFailureType.cancelled ) ) {
+		console.log('[Router]: Cancelled.');
+	}
+	else if ( isNavigationFailure(failure, NavigationFailureType.duplicated ) ) {
+		console.log('[Router]: Duplicated.');
+	}
+});
 
 export default router

@@ -114,6 +114,13 @@ pre, textarea {
 code {
 	font-family: Consolas, Monaco, 'Lucida Console', Menlo, monospace;
 }
+[unselectable="on"] {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 
 // input{line-height:1}
 
