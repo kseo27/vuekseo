@@ -1,32 +1,5 @@
 @charset 'utf-8';
-@import 'setup', 'theme', 'primevue', 'overrides', 'layouts';
-
-@font-face {
-	font-family: 'Material Icons Outlined';
-	font-style: normal;
-	font-weight: normal;
-	src:url('~@/assets/glyphs/MaterialIcons-Outlined.woff2') format('woff2'),
-		url('~@/assets/glyphs/MaterialIcons-Outlined.woff') format('woff'),
-		url('~@/assets/glyphs/MaterialIcons-Outlined.otf') format('opentype');
-}
-
-.mi {
-	display: inline-block;
-	font-family: 'Material Icons Outlined';
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	speak: none;
-
-	&:before {
-		content: attr(mi);
-		--webkit-backface-visibility: hidden;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
-	}
-}
+@import 'setup', 'glyphs', 'theme', 'primevue', 'overrides', 'layouts';
 
 .vt-box {
 	padding: 20px;

@@ -1,5 +1,5 @@
-import { createRouter, createWebHashHistory, /* START_LOCATION */ } from 'vue-router'
-import RouterBridge from './RouterBridge.vue';
+import { createRouter, createWebHashHistory, RouterView /* START_LOCATION */ } from 'vue-router'
+import RouterBridge from './RouterBridge2.vue';
 
 // * 비동기 Chunk 그룹화 주석
 // import(/* webpackChunkName: "group-name" */ './Compo.vue')
@@ -9,12 +9,19 @@ const routes = [
 		path: '/',
 		name: 'Main',
 		component: () => import('@views/Main.vue'),
+		redirect: '/main', // TODO: Conditional Navigation 형태로 변경
 		children: [
+			{
+				path: 'main',
+				name: 'MainContent',
+				meta: { exposure: false, flexible: true, leaf: true },
+				component: () => import('@views/MainContent.vue')
+			},
 			{
 				path: 'guidance',
 				name: 'Guidance',
 				meta: { title: 'Vue Guidance', leaf: false },
-				component: RouterBridge,
+				component: RouterView,
 				children: [
 					{
 						path: 'sfc',
@@ -26,14 +33,14 @@ const routes = [
 						path: 'scope',
 						name: 'Scope',
 						meta: { title: 'Vue Scope', leaf: true },
-						component: RouterBridge,
+						component: RouterView,
 						children: []
 					},
 					{
 						path: 'router',
 						name: 'Router',
 						meta: { title: 'Vue Router', leaf: true },
-						component: RouterBridge,
+						component: RouterView,
 						children: []
 					},
 				]
@@ -42,7 +49,7 @@ const routes = [
 				path: 'tmpl',
 				name: 'Templates',
 				meta: { title: 'Templates', leaf: false },
-				component: RouterBridge,
+				component: RouterView,
 				children: []
 			},
 			{
@@ -81,7 +88,7 @@ const routes = [
 			// 	path: 'user',
 			// 	name: 'UserManagement',
 			// 	meta: { title: 'User Management', leaf: false },
-			// 	component: RouterBridge,
+			// 	component: RouterView,
 			// 	children: [
 			// 		{
 			// 			path: 'list',

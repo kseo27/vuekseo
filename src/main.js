@@ -17,9 +17,9 @@ import ToastService from 'primevue/toastservice'
 // import 'primevue/resources/primevue.min.css'  // core css // ? vt-style 내에서 중복되는 상태
 import 'primeflex/primeflex.min.css'  // flex css
 import 'primeicons/primeicons.css'  // icons
-import '@/assets/scss/vt-style.scss';
+import '@/assets/scss/vt-style.scss'
 // for Reference page
-import '@/assets/scss/vt-ref.scss';
+import '@/assets/scss/vt-ref.scss'
 
 
 const app = createApp(App)
@@ -43,6 +43,11 @@ app.component('Confirm', Confirm)
 app.use(ConfirmationService)
 app.component('Toast', Toast)
 app.use(ToastService)
+
+
+// !#Ref:Highcharts: Installer
+import Highcharts from '@/plugins/highcharts.reg';
+app.use(Highcharts);
 
 
 app.mount('#app')

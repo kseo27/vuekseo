@@ -1,5 +1,5 @@
 <template>
-	<li :class="[`${routeClass}-item`, `${routeClass}-d${depth}`, isActive && activeClass]">
+	<li :class="[`${routeClass}-item`, `${routeClass}-d${depth}`, isActive && activeClass]" v-if="route.meta.exposure !== false">
 		<a :href="href" :class="`${routeClass}-link`" @click="onLinkClick">
 			{{ route.meta.title }}
 		</a>
@@ -39,8 +39,8 @@ export default {
 			return _.startsWith( props.selectedPath, linkRoute.value.path );
 		});
 		const childLinks = computed(() => {
-			let { children } = props.route;
-			return children && children.length ? children : null;
+			let children = _.filter(props.route.children, c => c.meta.exposure !== false);
+			return children.length ? children : null;
 		});
 
 		const onLinkClick = ev => {

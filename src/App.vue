@@ -1,19 +1,13 @@
 <template>
-	<!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-	<!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 	<RouterView />
 	<Toast />
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import { usePrimeVue } from "primevue/config"
 
 export default {
 	name: 'App',
-	// components: {
-	// 	HelloWorld
-	// },
 	setup() {
 		const primevue = usePrimeVue();
 		primevue.config.locale.accept = 'OK';

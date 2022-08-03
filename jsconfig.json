@@ -8,17 +8,23 @@
 			"@@/*": [
 				"./*"
 			],
+			"@components/*": [
+				"./src/components/*"
+			],
 			"@composables/*": [
 				"./src/composables/*"
 			],
-			"@components/*": [
-				"./src/components/*"
+			"@const/*": [
+				"./src/common/constants/*"
+			],
+			"@services/*": [
+				"./src/services/*"
 			],
 			"@store/*": [
 				"./src/store/*"
 			],
-			"@styles/*": [
-				"./src/assets/styles/*"
+			"@utils/*": [
+				"./src/common/utils/*"
 			],
 			"@views/*": [
 				"./src/views/*"

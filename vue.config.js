@@ -39,7 +39,7 @@ module.exports = {
 		open: true,
 		proxy: {
 			[process.env.VUE_APP_API]: {
-				target: `http://localhost:8080`,
+				target: process.env.VUE_APP_API_SERVER,
 				// changeOrigin: true,
 				pathRewrite: {
 					['^' + process.env.VUE_APP_API]: ''
@@ -58,7 +58,6 @@ module.exports = {
 				'@const': combine('common/constants'),
 				'@services': combine('services'),
 				'@store': combine('store'),
-				'@styles': combine('assets/styles'),
 				'@utils': combine('common/utils'),
 				'@views': combine('views'),
 			}
