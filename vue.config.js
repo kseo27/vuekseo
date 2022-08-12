@@ -29,8 +29,8 @@ module.exports = {
 	 * [publicPath] 리포지토리명
 	 * [outputDir] github pages root 경로
 	 */
-	publicPath: isProdMode ? '/vue-tmpl' : '/',
-	outputDir: 'docs',
+	// publicPath: isProdMode ? '/vue-tmpl' : '/',
+	outputDir: 'dist',
 	assetsDir: 'assets',
 
 	devServer: {
