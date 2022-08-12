@@ -123,7 +123,8 @@ const router = createRouter({
 
 	// * GitHub Pages 배포를 위해 Hash모드 사용
 	// 직접 서버에 배포 및 라우터 처리를 한다면 createWebHistory()모드 사용
-	history: createWebHashHistory(),
+	// history: createWebHashHistory(),
+	history: createWebHistory(),
 	routes
 })
 
