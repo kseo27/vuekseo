@@ -1,4 +1,9 @@
-import { createRouter, createWebHashHistory, RouterView /* START_LOCATION */ } from 'vue-router'
+import {
+	createRouter,
+	createWebHistory,
+	// createWebHashHistory,
+	RouterView /* START_LOCATION */
+} from 'vue-router'
 import RouterBridge from './RouterBridge2.vue';
 
 // * 비동기 Chunk 그룹화 주석
