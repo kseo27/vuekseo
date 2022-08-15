@@ -8,6 +8,9 @@
 	</Finder>
 </section>
 <Button label="Get Map" class="mt-2" @click="getFinderMap" />
+<span>{{ finder&&finder.zoom }}</span>
+<p>- Map의 이미지를 변환하려면 <code>updateMap()</code> 메서드 사용</p>
+<p>- 각 Node Item에 유동적인 속성을 사용하려면 <code>computed</code> 형태로 변환</p>
 </template>
 
 <script>

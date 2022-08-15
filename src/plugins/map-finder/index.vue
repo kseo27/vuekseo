@@ -67,6 +67,29 @@ export default {
 			else _.assign(mapState, state);
 			console.log(mapState);
 		}
+
+		// ?#expt. fit to viewport
+		const fitToView = () => {
+			let { clientWidth: vw, clientHeight: vh } = wrapper;
+			let { width, height } = canvasState;
+			console.log(vw, vh);
+
+			let horz = toFixed(vw/width, 2), vert = toFixed(vh/height, 2);
+			let minScale = Math.min(horz, vert);
+			let maxScale = Math.max(horz, vert);
+			console.log(minScale, maxScale);
+
+			let stdBase = Math.sqrt(Math.pow(vw,2) + Math.pow(vh,2))*3;
+			let fixBase = Math.pow(maxScale, 2);
+
+			console.log( stdBase );
+			console.log( fixBase );
+			console.log( stdBase / fixBase );
+
+			// min zoom
+			zoom.value = Math.min(toFixed(vw/width, 2), toFixed(vh/height, 2));
+		}
+
 		const onMapLoad = ev => {
 			let { naturalWidth, naturalHeight } = ev.target;
 			canvasState.width = naturalWidth;
@@ -74,8 +97,9 @@ export default {
 			disabled.value = false;
 
 			// TODO: fit to wrapper 함수로 분할, 아래 수행이후 zoom수치 이용하여 중앙정렬
-			let { clientWidth, clientHeight } = wrapper;
-			zoom.value = Math.min(toFixed(clientWidth/naturalWidth, 2), toFixed(clientHeight/naturalHeight, 2));
+			// let { clientWidth, clientHeight } = wrapper;
+			// zoom.value = Math.min(toFixed(clientWidth/naturalWidth, 2), toFixed(clientHeight/naturalHeight, 2));
+			fitToView();
 		}
 		const onMapError = ev => {
 			disabled.value = true;
@@ -130,7 +154,7 @@ export default {
 			if ( remainder ) step = d > 0 ? step - remainder : remainder;
 
 			let nextZoom = +toFixed(lastZoom + (d * step), 2);
-			zoom.value = Math.min(Math.max(0.5 /* min */, nextZoom), 4 /* max */);
+			zoom.value = Math.min(Math.max(0.5 /* min */, nextZoom), 100 /* max */);
 
 			if ( lastZoom === zoom.value ) return;
 
