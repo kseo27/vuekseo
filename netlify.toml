@@ -28,7 +28,7 @@
 
 # Redirects for role-based access control don’t use the 'to' property.
 [[redirects]]
-  from = "/api"
+  from = "/api/*"
   status = 200
   # conditions = {Role = ["admin"]}
   force = true
