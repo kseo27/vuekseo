@@ -16,7 +16,6 @@
 
   # Default build command.
   # command = "echo 'default context'"
-  command = "npm run build"
 
 
 # The following redirect is intended for use with most SPAs
@@ -27,9 +26,8 @@
   status = 200
 
 # Redirects for role-based access control don’t use the 'to' property.
-[[redirects]]
-  from = "/api/*"
-  to = "/"
-  status = 200
+# [[redirects]]
+  # from = "/api"
+  # status = 200
   # conditions = {Role = ["admin"]}
-  force = true
+  # force = true
