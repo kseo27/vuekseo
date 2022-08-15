@@ -15,7 +15,8 @@
   # publish = "build-output/"
 
   # Default build command.
-  command = "echo 'default context'"
+  # command = "echo 'default context'"
+  command = "npm run build"
 
 
 # The following redirect is intended for use with most SPAs

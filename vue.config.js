@@ -30,7 +30,7 @@ module.exports = {
 	 * [outputDir] github pages root 경로
 	 */
 	// publicPath: isProdMode ? '/vue-tmpl' : '/',
-	outputDir: 'dist',
+	outputDir: 'build',
 	assetsDir: 'assets',
 
 	devServer: {
